@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Các lệnh cơ bản</h1>
+      </header>
+    <script>
+        const includeHTML = async (filePath) => {
+          const response = await fetch(filePath);
+          const content = await response.text();
+          document.querySelector("body").insertAdjacentHTML("afterbegin", content);
+        };
+        includeHTML("header.html");
+      </script>
+      <main>
+        <section id="introduction">
+          <h2>Các lệnh cơ bản</h2>
+          <p>Git là một hệ thống quản lý phiên bản phân tán được sử dụng rộng rãi trong phát triển phần mềm.</p>
+        </section>
+      </main>
+    <footer>
+      <p>Bản quyền &copy; 2023 Hướng dẫn sử dụng Git.</p>
+    </footer>
+</body>
+</html>
