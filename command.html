@@ -1,31 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setting</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Base</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Các lệnh cơ bản</h1>
-      </header>
-    <script>
-        const includeHTML = async (filePath) => {
-          const response = await fetch(filePath);
-          const content = await response.text();
-          document.querySelector("body").insertAdjacentHTML("afterbegin", content);
-        };
-        includeHTML("header.html");
-      </script>
-      <main>
-        <section id="introduction">
-          <h2>Các lệnh cơ bản</h2>
-          <p>Git là một hệ thống quản lý phiên bản phân tán được sử dụng rộng rãi trong phát triển phần mềm.</p>
-        </section>
-      </main>
-    <footer>
-      <p>Bản quyền &copy; 2023 Hướng dẫn sử dụng Git.</p>
-    </footer>
+<header>
+    <h1>Các lệnh cơ bản</h1>
+  </header>
+<script>
+    const includeHTML = async (filePath) => {
+      const response = await fetch(filePath);
+      const content = await response.text();
+      document.querySelector("body").insertAdjacentHTML("afterbegin", content);
+    };
+    includeHTML("header.html");
+  </script>
+  <main>
+    <section id="introduction">
+      <h2>I/. Những lệnh Git cơ bản thường dùng:</h2>
+      <h3>1. Create a new remote repository:</h3>
+      <p>Tạo một tài khoản Git và tạo một kho lưu trữ từ xa (remote repository).</p>
+      <p>{Phần này tạo trên GitHub}   <a href="https://github.com/" target="_blank" rel="noreferrer">https://github.com/</a></p>
+      <h3>2. Git version:</h3>
+      <pre><code >  $ git --v</code></pre>
+      <ul><li>Kiểm tra phiên bản của Git.</li>
+        </ul>
+      <h3>3. Git config:</h3>
+      <pre>
+      <code>$ git config --g user.name "Dev name"</code>
+      <code>$ git config --g user.email "Dev email"</code>
+      <code>$ git config --list</code>
+    </pre>
+    <ul>
+      <li>Định cấu hình các biến cấu hình chung – Nếu bạn đang làm việc với các developer khác, bạn sẽ cần biết ai đang kiểm tra mã xuất nhập và thực hiện thay đổi.</li>
+      </ul>
+      <h3>4. Git help:</h3>
+      <p><code>$ git help -a or $ git help --all</code>      - Hướng dẫn bạn có thể làm được những gì, tất cả các lệnh có thể.</p>
+      <p><code>$ git config --help or $ git help config</code>  -  Đưa bạn tới trang hướng dẫn chính thống của Git.</p>
+      <p><code>$ git command -help</code>   .     Xem tất cả các tùy chọn có sẵn cho lệnh cụ thể</p>
+      <h3>5. Git mkdir:</h3>
+      <p><code>$ git mkdir folder_name </code>  - Tạo repository trong hệ thống local.</p>
+      <p><code> $ cd folder_name</code>  - Di chuyển đến folder_name repository vừa tạo ra.</p>
+      <h3>6. Git remote:</h3>
+      <p><code>$ git remote add origin https... &lt;url&gt;</code>  - Liên kết đến remote repository (local &amp; GitHub)</p>
+      <p><code>$ git remote set-url &lt;name&gt; &lt;new url&gt;</code>      - Thay đổi địa chỉ của remote repository đã Liên kết vào địa chỉ của &lt;new url&gt;.</p>
+      <p><code>$ git remote rename &lt;old&gt; &lt;new&gt;</code>
+        - Thay đổi tên của remote repository đã Liên kết.</p>
+      <h3>7. Git init:</h3>
+      <p><code>$ git init</code>
+        (Khởi tạo git trong thư mục dự án của bạn)
+        - Lệnh này được dùng khi bạn muốn tạo một phiên bản git mới cho một dự án.</p>
+      <h3>8. Git status:</h3>
+      <p><code>$ git status</code></p>
+      <p><code>$ git status --short </code></p>
+      <p>(Kiểm tra trạng thái của kho lưu trữ)</p>
+      <h5>Giải thích:</h5>
+      <pre><code>         ?? - Tập tin không bị theo dõi
+      A - Tệp được thêm vào giai đoạn
+      M - Tệp đã sửa đổi
+      D - Các tệp đã xóa
+</code></pre>
+<h6><em>Câu lệnh Git status dùng để kiểm tra status của repository.</em></h6>
+<h3>9. Git add:</h3>
+<pre><code>  $ git add .   (Chú ý dấu chấm)    </code></pre>
+<p>Hoặc:</p>
+<p><code>$ git add --all </code>   (git add -A)</p>
+<p><code>$ git add index.html </code>(có thể chỉ định trực tiếp tên tệp cần add)</p>
+<li><strong>Add những thay đổi (bạn đã tạo mới hoặc chỉnh sửa) để thực hiện commit.</strong></li>
+<h3>10. Git commit</h3>
+<p><code>$ git commit -m </code>"Thông điệp của bạn"</p>
+<ul>
+  <li>Git commit: Ghi lại các thay đổi vào kho lưu trữ.
+  (Cần thêm các thông điệp rõ ràng vào mỗi mục commit)
+  <ul>
+  <li><em>Cách đặt tên branch hay commit nên rõ ràng, thể hiện branch đó, commit đó thực hiện feature gì hay là fix bug gì... (thường thì sẽ theo quy định của công ty)</em></li>
+  </ul>
+  </li>
+  </ul>
+<h3>11. Git diff:</h3>
+<p><code>$ git diff</code>
+  So sánh sự khác biệt kể từ lần commit cuối cùng của bạn.</p>
+<p><code>$ git log</code>
+    Xem lịch sử làm việc với git (lịch sử commit)</p>
+
+<h3>12. Git push:</h3>
+<p><code>$ git push -u origin branch_mane</code> - Push (đẩy) branch vào remote repository.</p>
+<p><code>$ git push</code> - Push (đẩy) tất cả mọi thay đổi (đã commit) lên remote repository.</p>
+<p><code>$ git push -d origin branch_mane</code> - Xóa một branch trên remote repository.</p>
+<p><code>$ git push -f origin branch_mane</code> - Push force sẽ apply toàn bộ log ở local của bạn lên branch ở repo, bất chấp log 2 nơi khác nhau. (Xóa vĩnh viễn branch cũ Push branch mới. Dễ gây conflict cho người khác cẩn trọng trước khi dùng)</p>
+<h3>13. Git branch:</h3>
+<p><code>$ git branch -M branch_mane (main)</code> - Đổi tên nhánh chính.</p>
+<p><code>$ git branch</code>- Kiểm tra các nhánh hiện có của bạn ở local.</p>
+<p><code>$ git branch -c branch_mane</code>
+  Hoặc:</p>
+<p><code>$ git checkout -b branch_mane</code> (Tạo và chuyển luôn sang nhánh mới) - Tạo một nhánh có tên “branch_mane” và hợp nhất (merge) nó với nhánh chính.</p>
+<p><code>$ git branch -d branch_mane</code> - Xóa một nhánh tại local có tên: "branch_mane" (branch đã được hợp nhất (push) vào remote repository)</p>
+<p><code>$ git branch -D branch_mane</code> - Xóa một nhánh tại local có tên: "branch_mane" (branch đã commit nhưng chưa hợp nhất vào remote repository)</p>
+<p><code>$ git branch -a</code> - Kiểm tra các branch hiện có trên remote repo của bạn.</p>
+
+<h3>14. Git checkout:</h3>
+<p><code>$ git checkout -b branch_mane</code>
+  (Tạo và chuyển luôn sang nhánh mới)</p>
+<p><code>$ git checkout branch_mane</code>  - Lệnh trên giúp di chuyển không gian làm việc, kiểm tra tệp giữa các branch_mane.</p>
+
+<h3>15. Git fetch: (Lấy code về nhưng chưa muốn merge)</h3>
+<p><code>$ git fetch origin</code></p>
+<ul>
+  <li>Git fetch cho phép CẬP NHẬT để xem điều gì đã thay đổi trên GitHub của bạn.</li>
+  <li>Lệnh fetch (xác nhận nội dung thay đổi trong branch của remote repository) nhưng nội dung branch của local repository không bị thay đổi.</li>
+  </ul>
+
+<h3>16. Git merge: (merge kết hợp nhánh hiện tại, với một nhánh được chỉ định.)</h3>
+<ul>
+  <li>Di chuyển về branch cần hợp nhất bằng lệnh checkout.</li>
+  </ul>
+<p><code>$ git checkout branch_mane1</code> (Nhánh nhận hợp nhất or nhánh hiện tại)</p>
+<ul>
+  <li>Tiến hành hợp nhất:</li>
+  </ul>
+  <p><code>$ git merge branch_mane2</code> (Nhánh chỉ định hợp nhất)</p>
+  <p>(Nhánh hiện tại là nhánh bạn đang đứng, nhánh chỉ định là nhánh sau lệnh $ git merge)</p>
+  <p><em><strong>Lệnh trên giúp hợp nhất các branch (Hợp nhất branch_mane2 vào branch_mane1).
+    (Chú ý xử lý xung đột code)</strong></em></p>
+  
+  <h3>17. Git pull: (Hợp nhất từ xa)</h3>
+  <p><code>$ git pull origin main</code> - Git pull kéo tất cả các thay đổi từ main về local.</p>
+  <p><code>$ git pull</code> - Git pull kéo tất cả các thay đổi từ branch_mane về local.</p>
+  <p><code>$ git pull origin</code> - Git pull kéo tất cả các thay đổi từ kho lưu trữ từ xa vào branch bạn đang làm việc.
+    (pull là sự kết hợp của 2 lệnh khác nhau: fetch và merge)</p>
+  <p><code>$ git pull --rebase</code> (Cach pull chống xung đột)</p>
+  <h3>18. Git clone</h3>
+  <p><code>$ git clone &lt;url&gt; </code> (Địa chỉ dự án bạn muốn Clone) - Clone dự án có sẵn trên GitHub.
+    <code>$ git clone &lt;url&gt;</code> folder_name - Clone đồng thời đổi tên dự án theo ý bạn khi save vào local.</p>
+
+  <h3>19. Git stash:</h3>
+  <p><code>$ git stash save #</code>
+    Hoặc
+    <code>$ git stash</code> - Lưu lại công việc đang làm ở branch này để chuyển sang branch khác (Khi bạn chưa muốn commit code)</p>
+    <p><code>$ git stash list</code> - Xem lại lịch sử thay đổi.</p>
+    <p><code>$ git stash show stash@{n}</code> - Xem lại lịch sử thay đổi cụ thể của lần stash save{n}.</p>
+    <p><code>$ git stash apply stash@{1}</code> - Apply thay đổi của lần stash save{n}.</p>
+    <p><code>$ git stash clear</code> - Xoá toàn bộ stash.</p>
+
+    <h3>20. Git rebase: (Hợp nhất code)</h3>
+    <ul>
+      <li>Di chuyển về nhánh nhận sự hợp nhất.</li>
+      </ul>
+      <p>$ git checkout branch_mane1</p>
+      <ul>
+        <li>Tiến hành hợp nhất.</li>
+        </ul>
+        <p><code>$ git rebase branch_mane2</code>
+          (Code từ branch_mane2 được hợp nhất vào branch_mane1)</p>
+        <p><em><strong>Tương đồng với merge nhưng có sự khác biệt như sau:</strong></em></p>
+        
+        <ul>
+          <li>Merge: Chỉ lấy nội dung commit cuối cùng của hai nhánh, tích hợp tạo thành commit mới. Các commit trước đó được giữ nguyên không thay đổi.</li>
+          <li>Rebase: Lấy code từ branch_mane2, từ những commit ở branch_mane2 tích hợp đồng thời tái tạo lại commit mới ở branch_mane1 (Các commit đã tồn tại bị bỏ đi).</li>
+          </ul>
+          <h3>21. Git revert:</h3>
+          <p><code>$ git revert &lt;commit_id&gt;</code></p>
+          <ul>
+            <li>Lệnh này tạo commit đảo ngược commit có commit_id được chọn.</li>
+            </ul>
+            <p><code>$ git reset –hard &lt;commit_id&gt;</code>  - Lệnh này xoá toàn bộ các commit trước đó, đưa branch về trạng thái của commit_id được chọn.</p>
+            <p><code>$ git reset –soft &lt;commit_id</code>&gt;  - Đưa branch về trạng thái của commit_id được chọn. Giữ nguyên tất cả thay đổi của file và các thay đổi ở stage. (Được khuyến khích sử dụng)</p>
+            <p><strong>Note:</strong></p>
+            <ul>
+              <li>Nhấn phím mũi tên chỉ xuống để đọc tiếp nội dung bị che khuất phía dưới.</li>
+              <li>Nhấn phím chữ 'q' để thoát khỏi chế độ xem, đưa bạn về dấu nhắc lệnh branch hiện tại.</li>
+              </ul>
+              
+
+
+
+  
+      
+    </section>
+  </main>
+<footer>
+  <p>Bản quyền &copy; 2023 Hướng dẫn sử dụng Git.</p>
+</footer>
 </body>
 </html>

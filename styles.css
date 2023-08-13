@@ -89,21 +89,7 @@ footer {
     background-color: #dbedf9;
     display: block;
     margin: 0;
-    border-radius: 0.4rem;
-    padding: 1rem 0;
-}
-ul li, ol li {
-  max-width: 750px;
-  font-size: 18px;
-  line-height: 155%;
-}
-ul li,ol li {
-  max-width: 750px;
-  font-size: 18px;
-  line-height: 155%;
-  padding: 3px 0 3px 10px;
-}
-.img{
-  margin-left: 0.4rem;
-}
+    padding: 0;
+  }
+
   
