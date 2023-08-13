@@ -1,31 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setting</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setting</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Luồng làm việc cơ bản</h1>
-      </header>
-    <script>
-        const includeHTML = async (filePath) => {
-          const response = await fetch(filePath);
-          const content = await response.text();
-          document.querySelector("body").insertAdjacentHTML("afterbegin", content);
-        };
-        includeHTML("header.html");
-      </script>
-      <main>
-        <section id="workflow">
-            <h2>Luồng làm việc cơ bản với Git</h2>
-            <p>Cách thức hoạt động cơ bản khi làm việc với Git.</p>
-          </section>
-      </main>
-    <footer>
-      <p>Bản quyền &copy; 2023 Hướng dẫn sử dụng Git.</p>
-    </footer>
+  <header>
+      <h1>Luồng làm việc cơ bản</h1>
+    </header>
+  <script>
+      const includeHTML = async (filePath) => {
+        const response = await fetch(filePath);
+        const content = await response.text();
+        document.querySelector("body").insertAdjacentHTML("afterbegin", content);
+      };
+      includeHTML("header.html");
+    </script>
+    <main>
+      <section id="workflow">
+          <h2>Luồng làm việc cơ bản với Git</h2>
+          <p>Cách thức hoạt động cơ bản khi làm việc với Git.</p>
+          <p><em>Tất nhiên rồi! Đối với những proDev, lỡ có quên... chỉ một dòng lệnh: $ git help -a là lại Ok.
+            Nhưng với những bạn mới dù  $ git help -a thì cũng không biết bắt đầu từ đâu? Không biết thực thi dòng lệnh nào trong giai đoạn nào?</em></p>
+            <p><strong>Các bạn đừng quá lo lắng, bức tranh tổng quát sau sẽ giúp các bạn phần nào giải tỏa được những băn khoăn đó</strong>:</p>
+            <p>Trong hướng dẫn này, tôi mặc định rằng các bạn đã có cho mình một tài khoản GitHub và thành thạo với việc tạo một kho lưu trữ từ xa (remote repository) trên GitHub nha. (Phần này tạo trên GitHub)
+              Nếu bạn nào chưa tạo được remote repository thì xem lại bài giảng này nhé:</p>
+              <p style="text-align:center"><img alt="gitTeam.png" src="img/img.png" style="cursor: pointer;"></p>
+              <h3>A/. Quy trình chủ động: (Bạn chủ động triển khai một dự án mới)</h3>
+              <h4>1/. Cài đặt, tạo tài khoản Github:</h4>
+              <ul>
+                <li>
+                <p>Bạn có thể tạo Github account tại đây <a href="https://github.com/signup/free" target="_blank" rel="noreferrer">https://github.com/signup/free</a></p>
+                </li>
+                <li>
+                <p>Cài đặt Github client vào máy cá nhân  <a href="/external-url?continue=https%3A%2F%2Fdesktop.github.com%2F" target="_blank" rel="noreferrer">https://desktop.github.com/</a></p>
+                </li>
+                </ul>
+                <h4>2/. Cấu hình Github client để làm việc với máy chủ Github</h4>
+                <ul>
+                  <li>
+                  <p>Cấu hình Github client được hướng dẫn cụ thể trên Github, mình xin tóm lược một số bước chính:</p>
+                  </li>
+                  <li>
+                  <p>Tạo SSH key: <a href="https://github.com/centic9/generate-and-send-ssh-key" target="_blank" rel="noreferrer">https://github.com/centic9/generate-and-send-ssh-key</a></p>
+                  </li>
+                  <li>
+                  <p>Cài đặt thông tin cá nhân:</p>
+                  </li>
+                  </ul>
+                  <p><code>$ git config --g user.name “Tên của bạn”</code></p>
+                  <p><code>$ git config --g user.email “Địa chỉ email của bạn”</code></p>
+                  <h4>3/. Khởi tạo repo:</h4>
+                  <ul>
+                    <li>Khởi tạo thư mục repo trên máy client (máy của lập trình viên)</li>
+                    </ul>
+                    <p><code>mkdir (Đường dẫn bạn muốn đặt thư mục repo)</code></p>
+                    <p><code>cd (Tên repo vừa tạo)</code> để chuyển sang repo đó làm việc
+                      $ git init</p>
+                      <h4>4/. Đưa file từ client lên Github:</h4>
+                      <ul>
+                        <li>Kết nối tới Github repo</li>
+                        <li></li>
+                        </ul>
+                        <p><code>$ git remote add origin git@github.com:(Tên repo)</code></p>
+                        <p>Chú ý: Luôn cập nhật server trước khi <code>push</code> nội dung mới từ client lên bằng lệnh git pull:
+                          <code>$ git pull git@github.com:(Tên repo) main</code></p>
+                          <p>Sau khi có một repo và kết nối với sever là bạn đã sẵn sàng cho việc ra mắt một dự án rồi.</p>
+                          <p>Công việc bây giờ là:   <code>Code... code... và code...! </code>và sau đó:</p>
+                          <ul>
+                            <li>
+                            <p>Kiểm tra trạng thái thay đổi
+                            <code>$ git status</code></p>
+                            </li>
+                            <li>
+                            <p>Add file vào danh sách commit (bỏ qua nếu không có file mới được tạo)
+                            <code>$ git add -A  (all files)</code></p>
+                            </li>
+                            <li>
+                            <p>Commit những thay đổi trước khi push:
+                            <code>$ git commit -a -m “Thông tin về commit”</code> (-a Tất cả thay đổi)</p>
+                            </li>
+                            <li>
+                            <p>Tải lên server nhánh main
+                            <code>$ git push -u origin main</code></p>
+                            </li>
+                            <li>
+                            <p>Tạo nhánh (branch) riêng:</p>
+                            </li>
+                            </ul>
+                            <ul>
+                              <li>
+                              <p>Xem toàn bộ các nhánh đang có
+                              <code>$ git branch -a</code></p>
+                              </li>
+                              <li>
+                              <p>Tạo nhánh mới
+                              <code>$ git branch</code> &lt;tên mới&gt;</p>
+                              </li>
+                              <li>
+                              <p>Chuyển nhánh
+                              <code>git checkout </code>&lt;tên nhánh&gt;</p>
+                              </li>
+                              <li>
+                              <p>Xóa nhánh
+                              <code>$ git branch -d</code> &lt;Tên branch&gt;</p>
+                              </li>
+                              <li>
+                              <p>Nhập nhánh con vào nhánh hiện tại
+                              <code>$ git merge</code> &lt;Tên nhánh&gt;</p>
+                              </li>
+                              </ul>
+                              <h4>5/. Settings và xuất bản GitHub Pages thôi nào!</h4>
+                              <h3>B/. Quy trình bị động: (Bạn được Sếp giao hoặc tham gia dự án cùng Team)</h3>
+                              <ul>
+                                <li>Từ bước 1 đến bước 3 (Tương tự như trên)</li>
+                                </ul>
+                                <p>Chỉ khác là sau bước 3 thì bước tiếp theo là bạn Clone dự án: (Sau khi tạo repo thành công) Chắc chắn rằng bạn đang đứng tại repo cần lưu dự án và chạy lệnh:</p>
+                                <p><code>$ git clone &lt;url&gt;</code> (Địa chỉ dự án bạn muốn Clone)
+                                  Rồi lại tiếp tục Code... code... theo yêu cầu và lặp lại quy trình các bước như trên để xuất bản dự án.</p>
+                                  <p>Trên đây là một số bước cơ bản để làm việc nhóm với Git. Mục đích chính của mình nhằm giúp các bạn hiểu được các giai đoạn sử dụng dòng lệnh cho phù hợp. Còn thực chất một quy trình làm việc nhóm thực tế sẽ còn rất nhiều công đoạn, nhiều việc phải làm... Nhưng cũng chỉ xoay quanh một số lênh thường dùng bạn nên nắm chắc và hiểu về chúng!</p>
+
+                                  <ul>
+                                    <li>Liệt kê một số lệnh hay dùng</li>
+                                    </ul>
+
+                                    <p><code>touch “tên file”  (Tạo 1 file)</code></p>
+                                    <p><code>echo “nội dung” &gt; “tên file” (viết nội dung vào trong file)</code></p>
+                                    <p><code>git remote add origin git@github.com:&lt;tên repo&gt;  (Tạo kết nối tới Github server)</code></p>
+                                    <p><code>git pull git@github.com:&lt;tên repo&gt; &lt;tên branch&gt;  (Cập nhật dữ liệu từ server)</code></p>
+                                    <p><code>git status (Xem trạng thái hiện tại)</code>
+                                      <code>git add -A (add all file đã thay đổi, chuẩn bị cho commit)</code>
+                                      <code>git commit -a -m “Thông tin note”  (commit all file để chuẩn bị push)</code>
+                                      <code>git push origin &lt;+ tên nhánh muốn push lên&gt;  (Gửi nội dung đã commit lên server vào nhánh...)</code></p>
+                                      <hr>
+                                      <h3><em>Chúc các bạn sức khỏe và thành công!</em></h3>
+                                      
+        </section>
+    </main>
+  <footer>
+    <p>Bản quyền &copy; 2023 Hướng dẫn sử dụng Git.</p>
+  </footer>
 </body>
 </html>

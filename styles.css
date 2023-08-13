@@ -3,6 +3,9 @@ body, h1, h2, p, ul, li {
     margin: 0;
     padding: 0;
   }
+  h3{
+    font-size: 1.5em;
+  }
   
   body {
     font-family: Arial, sans-serif;
@@ -24,7 +27,9 @@ body, h1, h2, p, ul, li {
     background-color: #444;
     padding: 0.5rem 0;
   }
-  
+  a {
+    color :orange
+  }
   nav a {
     color: #fff;
     text-decoration: none;
@@ -37,12 +42,26 @@ body, h1, h2, p, ul, li {
   
   main {
     padding: 2rem;
+    margin-left: 100px;
   }
   
   .slider {
     position: relative;
     overflow: hidden;
   }
+  code {
+    background-color: rgba(96,125,139,.2);
+    font-family: var(--font-code);
+    font-size: 1rem;
+    border-radius: 3px;
+    padding: 3px 4px;
+    white-space: pre-wrap!important;
+}
+ 
+pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
   
   .slider section {
     width: 100%;
