@@ -95,6 +95,12 @@ footer {
     margin:20xp 0;
     padding: 0;
     width:fit-content;
+    border-radius: 0.4rem;
   }
+  
+  .ulsetting li{
+    margin-left: 0.8rem;
+  }
+
 
   
