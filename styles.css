@@ -56,4 +56,10 @@ body, h1, h2, p, ul, li {
     background-color: #333;
     color: #fff;
   }
+  div {
+    margin-top: 2rem;
+  }
+  img{
+    margin-top: 1rem;
+  }
   
